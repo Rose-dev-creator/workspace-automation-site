@@ -10,60 +10,83 @@
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap');
         body { font-family: 'Open Sans', sans-serif; }
         h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
-        .gradient-bg { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }
-        /* Skip to content link for AODA compliance */
-        .skip-link { position: absolute; top: -40px; left: 0; background: #2563eb; color: white; padding: 8px; z-index: 100; transition: top 0.3s; }
+        .gradient-bg { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+        
+        /* Skip to content link - Critical for AODA 100 score */
+        .skip-link { 
+            position: absolute; 
+            top: -100px; 
+            left: 0; 
+            background: #1d4ed8; 
+            color: white; 
+            padding: 12px; 
+            z-index: 100; 
+            transition: top 0.3s; 
+            text-decoration: none;
+            font-weight: bold;
+        }
         .skip-link:focus { top: 0; }
+
+        /* Ensure links are distinguishable without color alone */
+        nav a:hover, nav a:focus {
+            text-decoration: underline;
+            text-underline-offset: 8px;
+            text-decoration-thickness: 2px;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900">
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Navigation -->
-    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50" aria-label="Main Navigation">
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50" aria-label="Primary Navigation">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-2" aria-label="Workspace Automation Home">
+            <a href="index.html" class="flex items-center gap-2" aria-label="Workspace Automation - Home">
                 <div class="w-10 h-10 bg-blue-700 rounded flex items-center justify-center text-white font-bold text-xl shadow-lg" aria-hidden="true">W</div>
-                <span class="font-bold text-slate-800 tracking-tight text-xl uppercase">WORKSPACE <span class="text-blue-700">AUTOMATION</span></span>
+                <span class="font-bold text-slate-900 tracking-tight text-xl uppercase">WORKSPACE <span class="text-blue-700">AUTOMATION</span></span>
             </a>
-            <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
+            <div class="hidden md:flex items-center gap-8 text-sm font-bold text-slate-800 uppercase tracking-tight">
                 <a href="#services" class="hover:text-blue-700 transition">Services</a>
                 <a href="report.html" class="hover:text-blue-700 transition">Methodology</a>
-                <a href="mailto:info@workspace-automation.com" class="bg-blue-700 text-white px-5 py-2 rounded-lg hover:bg-blue-800 transition shadow-md" role="button">Get Started</a>
+                <a href="mailto:info@workspace-automation.com" class="bg-blue-700 text-white px-6 py-2 rounded-lg hover:bg-blue-800 transition shadow-md" aria-label="Contact us via email">Get Started</a>
             </div>
         </div>
     </nav>
 
     <main id="main-content">
         <!-- Hero Section -->
-        <section class="gradient-bg py-24 px-6 text-white text-center relative overflow-hidden" aria-labelledby="hero-heading">
+        <section class="gradient-bg py-24 px-6 text-white text-center relative overflow-hidden" aria-labelledby="hero-title">
             <div class="max-w-4xl mx-auto relative z-10">
-                <span class="inline-block px-4 py-1 bg-blue-500/20 rounded-full text-blue-300 text-xs font-bold uppercase tracking-widest mb-6 border border-blue-500/30">Built for Canadian SMBs</span>
-                <h1 id="hero-heading" class="text-4xl md:text-6xl font-bold mb-8 leading-tight">Closing the <span class="text-blue-400">Infrastructure Gap</span> in Canadian AI.</h1>
-                <p class="text-xl text-slate-300 mb-12 max-w-2xl mx-auto leading-relaxed">
+                <!-- Contrast Fix: Lightened text for dark background -->
+                <span class="inline-block px-4 py-1 bg-blue-500/30 rounded-full text-blue-100 text-xs font-bold uppercase tracking-widest mb-6 border border-blue-400/40">Built for Canadian SMBs</span>
+                <h1 id="hero-title" class="text-4xl md:text-6xl font-bold mb-8 leading-tight text-white">Closing the <span class="text-blue-300">Infrastructure Gap</span> in Canadian AI.</h1>
+                <!-- Contrast Fix: Slate-300 changed to Slate-100 for better readability -->
+                <p class="text-xl text-slate-100 mb-12 max-w-2xl mx-auto leading-relaxed">
                     70% of Canadian SMBs lack the technical staff to secure their AI foundations. We bridge the gap with hardware hardening and private agent architecture.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="mailto:info@workspace-automation.com" class="bg-blue-700 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-800 transition shadow-xl">Request Technical Audit</a>
-                    <a href="report.html" class="bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition">Analyze Your ROI</a>
+                    <a href="report.html" class="bg-white text-blue-900 border border-white/40 px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-100 transition">Analyze Your ROI</a>
                 </div>
             </div>
         </section>
 
-        <!-- Services -->
-        <section id="services" class="py-24 px-6 bg-white" aria-labelledby="services-heading">
+        <!-- Services Section -->
+        <section id="services" class="py-24 px-6 bg-white" aria-labelledby="services-header">
             <div class="max-w-7xl mx-auto">
-                <h2 id="services-heading" class="sr-only">Our Services</h2>
+                <!-- Sequential Heading Order: H1 above, H2 here -->
+                <h2 id="services-header" class="text-3xl font-bold text-center mb-16 text-slate-900">Secure Automation Services</h2>
                 <div class="grid md:grid-cols-2 gap-12">
                     <div class="p-10 rounded-3xl bg-slate-50 border border-slate-200">
                         <i class="fa-solid fa-shield-halved text-blue-700 text-4xl mb-6" aria-hidden="true"></i>
-                        <h3 class="text-2xl font-bold mb-4">Infrastructure Hardening</h3>
-                        <p class="text-slate-600 mb-6">We secure the "Pipe" before we build the "Brain." From VLAN segmentation to Zero-Trust routing, we ensure your internal data stays internal.</p>
+                        <!-- Sequential Heading Order: H3 for sub-items -->
+                        <h3 class="text-2xl font-bold mb-4 text-slate-900">Infrastructure Hardening</h3>
+                        <p class="text-slate-800 mb-6 leading-relaxed">We secure the "Pipe" before we build the "Brain." From VLAN segmentation to Zero-Trust routing, we ensure your internal data stays internal.</p>
                     </div>
                     <div class="p-10 rounded-3xl bg-slate-50 border border-slate-200">
                         <i class="fa-solid fa-brain text-blue-700 text-4xl mb-6" aria-hidden="true"></i>
-                        <h3 class="text-2xl font-bold mb-4">Custom AI Agents</h3>
-                        <p class="text-slate-600 mb-6">We build functional agents inside your private Microsoft or Google tenant. Your data never trains global models.</p>
+                        <h3 class="text-2xl font-bold mb-4 text-slate-900">Custom AI Agents</h3>
+                        <p class="text-slate-800 mb-6 leading-relaxed">We build functional agents inside your private Microsoft or Google tenant. Your data never trains global models.</p>
                     </div>
                 </div>
             </div>
@@ -71,8 +94,10 @@
     </main>
 
     <footer class="bg-white py-12 border-t border-slate-200 text-center">
-        <p class="text-slate-500 text-sm">© 2026 Workspace Automation | info@workspace-automation.com</p>
+        <!-- Contrast Fix: Darkened text for footer -->
+        <p class="text-slate-900 text-sm font-bold uppercase tracking-wide">© 2026 Workspace Automation | info@workspace-automation.com</p>
     </footer>
+
 </body>
 </html>
 
