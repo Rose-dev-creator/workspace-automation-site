@@ -33,6 +33,22 @@
             text-underline-offset: 8px;
             text-decoration-thickness: 2px;
         }
+
+        /* AODA Badge Styling */
+        .aoda-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #1d4ed8;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900">
@@ -57,10 +73,8 @@
         <!-- Hero Section -->
         <section class="gradient-bg py-24 px-6 text-white text-center relative overflow-hidden" aria-labelledby="hero-title">
             <div class="max-w-4xl mx-auto relative z-10">
-                <!-- Contrast Fix: Lightened text for dark background -->
                 <span class="inline-block px-4 py-1 bg-blue-500/30 rounded-full text-blue-100 text-xs font-bold uppercase tracking-widest mb-6 border border-blue-400/40">Built for Canadian SMBs</span>
                 <h1 id="hero-title" class="text-4xl md:text-6xl font-bold mb-8 leading-tight text-white">Closing the <span class="text-blue-300">Infrastructure Gap</span> in Canadian AI.</h1>
-                <!-- Contrast Fix: Slate-300 changed to Slate-100 for better readability -->
                 <p class="text-xl text-slate-100 mb-12 max-w-2xl mx-auto leading-relaxed">
                     70% of Canadian SMBs lack the technical staff to secure their AI foundations. We bridge the gap with hardware hardening and private agent architecture.
                 </p>
@@ -74,12 +88,10 @@
         <!-- Services Section -->
         <section id="services" class="py-24 px-6 bg-white" aria-labelledby="services-header">
             <div class="max-w-7xl mx-auto">
-                <!-- Sequential Heading Order: H1 above, H2 here -->
                 <h2 id="services-header" class="text-3xl font-bold text-center mb-16 text-slate-900">Secure Automation Services</h2>
                 <div class="grid md:grid-cols-2 gap-12">
                     <div class="p-10 rounded-3xl bg-slate-50 border border-slate-200">
                         <i class="fa-solid fa-shield-halved text-blue-700 text-4xl mb-6" aria-hidden="true"></i>
-                        <!-- Sequential Heading Order: H3 for sub-items -->
                         <h3 class="text-2xl font-bold mb-4 text-slate-900">Infrastructure Hardening</h3>
                         <p class="text-slate-800 mb-6 leading-relaxed">We secure the "Pipe" before we build the "Brain." From VLAN segmentation to Zero-Trust routing, we ensure your internal data stays internal.</p>
                     </div>
@@ -93,12 +105,24 @@
         </section>
     </main>
 
-    <footer class="bg-white py-12 border-t border-slate-200 text-center">
-        <!-- Contrast Fix: Darkened text for footer and added Accessibility link -->
-        <p class="text-slate-900 text-sm font-bold uppercase tracking-wide">
-            © 2026 Workspace Automation | info@workspace-automation.com | 
-            <a href="inclusive_innovation_framework.md" class="hover:text-blue-700 hover:underline transition">Accessibility Standing</a>
-        </p>
+    <footer class="bg-white py-16 border-t border-slate-200 text-center">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col items-center gap-6">
+            <!-- Visual AODA Badge -->
+            <div class="aoda-badge" aria-label="100 percent AODA and WCAG 2.1 Compliant">
+                <i class="fa-solid fa-certificate text-white" aria-hidden="true"></i>
+                AODA Compliant 100%
+            </div>
+            
+            <p class="text-slate-900 text-sm font-bold uppercase tracking-wide">
+                © 2026 Workspace Automation | <span class="sr-only">Email: </span>info@workspace-automation.com
+            </p>
+            
+            <nav aria-label="Footer Legal Links">
+                <a href="inclusive_innovation_framework.md" class="text-slate-900 text-xs font-bold uppercase tracking-widest hover:text-blue-700 hover:underline transition underline-offset-4">
+                    Accessibility Standing & Framework
+                </a>
+            </nav>
+        </div>
     </footer>
 
 </body>
