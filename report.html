@@ -24,206 +24,193 @@
         h1, h2, h3, h4, h5 { font-family: 'Montserrat', sans-serif; }
         .chart-container { position: relative; width: 100%; height: 300px; margin-left: auto; margin-right: auto; }
         @media (min-width: 768px) { .chart-container { height: 350px; } }
-        .interactive-card { transition: all 0.3s ease; cursor: pointer; border: 2px solid #e2e8f0; }
-        .interactive-card:hover, .interactive-card:focus { transform: translateY(-5px); border-color: #2563eb; outline: none; }
-        .interactive-card.active { border-color: #2563eb !important; background-color: #eff6ff !important; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1); }
-        .vision-gradient { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
-        input[type="range"] { accent-color: #2563eb; }
-        .skip-link { position: absolute; top: -40px; left: 0; background: #2563eb; color: white; padding: 8px; z-index: 100; transition: top 0.3s; }
-        .skip-link:focus { top: 0; }
+        .interactive-card { transition: all 0.3s ease; cursor: pointer; }
+        .interactive-card:hover { transform: translateY(-5px); border-color: #3b82f6; box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.1); }
+        .interactive-card.active { border-color: #3b82f6; background-color: #eff6ff; }
+        input[type="range"] { accent-color: #3b82f6; }
     </style>
 </head>
 <body id="top" class="bg-slate-50 text-slate-800 antialiased selection:bg-blue-100 selection:text-blue-900">
-    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Navigation / Header -->
     <header class="bg-white/90 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity" aria-label="Workspace Automation Home">
-                <div class="w-8 h-8 bg-blue-700 rounded flex items-center justify-center text-white font-bold text-xl" aria-hidden="true">W</div>
+            <a href="#top" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <div class="w-8 h-8 bg-blue-600 rounded flex items-center justify-center text-white font-bold text-xl">W</div>
                 <span class="font-bold text-slate-700 tracking-tight uppercase">Workspace <span class="text-blue-600">Automation</span></span>
             </a>
-            <nav class="flex items-center gap-6" aria-label="Report Navigation">
-                <a href="index.html" class="hidden sm:block text-sm font-semibold text-slate-500 hover:text-slate-800 transition">Back to Hub</a>
+            <nav class="flex items-center gap-6">
+                <a href="#top" class="hidden sm:block text-sm font-semibold text-slate-500 hover:text-slate-800 transition">Summary</a>
                 <a href="#calculator" class="text-sm font-semibold text-blue-600 hover:text-blue-800 transition flex items-center gap-1">
-                    Calculator <i class="fa-solid fa-calculator ml-1" aria-hidden="true"></i>
+                    Calculator <i class="fa-solid fa-calculator ml-1"></i>
                 </a>
             </nav>
         </div>
     </header>
 
-    <main id="main-content">
-        <!-- Hero / Executive Summary -->
-        <section class="py-16 px-6 max-w-5xl mx-auto text-center" aria-labelledby="hero-title">
-            <div class="inline-block px-3 py-1 bg-blue-50 text-blue-600 text-xs font-bold rounded-full mb-6 border border-blue-100 uppercase tracking-widest">
-                Evidence-Based Methodology | 2026
-            </div>
-            <h1 id="hero-title" class="text-4xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight">
-                The Cost of <span class="text-blue-600">Administrative Friction</span>
-            </h1>
-            <p class="text-xl text-slate-600 mb-12 max-w-3xl mx-auto leading-relaxed">
-                Quantifying the productivity drain on Canadian SMBs. We convert infrastructure debt into operational ROI through secure, automated architecture.
-            </p>
+    <!-- Hero / Executive Summary -->
+    <section class="py-16 px-6 max-w-5xl mx-auto text-center">
+        <div class="inline-block px-3 py-1 bg-blue-50 text-blue-600 text-xs font-bold rounded-full mb-6 border border-blue-100 uppercase tracking-widest">
+            Evidence-Based Methodology | 2026
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight">
+            The Cost of <span class="text-blue-600">Administrative Friction</span>
+        </h1>
+        <p class="text-xl text-slate-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+            Analyzing the productivity drain on Canadian SMBs. We convert real-time friction data into operational ROI through secure, inclusive AI architecture.
+        </p>
 
-            <!-- Key Stats Grid -->
-            <div class="grid md:grid-cols-3 gap-6 text-left">
-                <div class="bg-white p-8 rounded-xl border-l-4 border-blue-600 shadow-sm">
-                    <div class="text-slate-400 text-sm font-bold uppercase mb-2">The ROI Gap</div>
-                    <div class="text-4xl font-bold text-slate-900 mb-2">74%</div>
-                    <p class="text-slate-500 text-sm">Of Canadian AI projects fail to see ROI due to infrastructure gaps (<a href="https://kpmg.com/ca/en/home/media/press-releases/2025/11/canadian-businesses-adopting-ai-but-few-are-seeing-roi.html" target="_blank" class="text-blue-600 hover:underline">KPMG</a>).</p>
-                </div>
-                <div class="bg-white p-8 rounded-xl border-l-4 border-red-500 shadow-sm">
-                    <div class="text-slate-400 text-sm font-bold uppercase mb-2">Infrastructure Gap</div>
-                    <div class="text-4xl font-bold text-slate-900 mb-2">70%</div>
-                    <p class="text-slate-500 text-sm">Of SMBs lack dedicated IT staff to manage AI foundations (<a href="https://www.bdc.ca/en/about/analysis-research/digital-maturity-canadian-smbs" target="_blank" class="text-red-600 hover:underline">BDC Index</a>).</p>
-                </div>
-                <div class="bg-white p-8 rounded-xl border-l-4 border-emerald-500 shadow-sm">
-                    <div class="text-slate-400 text-sm font-bold uppercase mb-2">Platform Monopoly</div>
-                    <div class="text-4xl font-bold text-slate-900 mb-2">95%</div>
-                    <p class="text-slate-500 text-sm">Of SMBs use Microsoft or Google. They have the tools, but lack configuration.</p>
-                </div>
+        <!-- Key Stats Grid -->
+        <div class="grid md:grid-cols-3 gap-6 text-left">
+            <div class="bg-white p-8 rounded-xl border-l-4 border-blue-600 shadow-sm">
+                <div class="text-slate-400 text-sm font-bold uppercase mb-2">The ROI Gap</div>
+                <div class="text-4xl font-bold text-slate-900 mb-2">74%</div>
+                <p class="text-slate-500 text-sm">Of Canadian AI projects fail to see ROI due to infrastructure gaps (<a href="https://kpmg.com/ca/en/home/media/press-releases/2025/11/canadian-businesses-adopting-ai-but-few-are-seeing-roi.html" target="_blank" class="text-blue-600 hover:underline">KPMG</a>).</p>
             </div>
-        </section>
+            <div class="bg-white p-8 rounded-xl border-l-4 border-red-500 shadow-sm">
+                <div class="text-slate-400 text-sm font-bold uppercase mb-2">Infrastructure Gap</div>
+                <div class="text-4xl font-bold text-slate-900 mb-2">70%</div>
+                <p class="text-slate-500 text-sm">Of SMBs lack dedicated IT staff to manage their AI foundations (<a href="https://www.bdc.ca/en/about/analysis-research/digital-maturity-canadian-smbs" target="_blank" class="text-red-600 hover:underline">BDC Index</a>).</p>
+            </div>
+            <div class="bg-white p-8 rounded-xl border-l-4 border-emerald-500 shadow-sm">
+                <div class="text-slate-400 text-sm font-bold uppercase mb-2">Security Barrier</div>
+                <div class="text-xl font-bold text-slate-900 mb-2">#1 Hurdle</div>
+                <p class="text-slate-500 text-sm">Security remains the primary reason firms hesitate to scale AI tools (<a href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3310100401&pickMembers%5B0%5D=3.1" target="_blank" class="text-emerald-600 hover:underline">StatsCan 2025</a>).</p>
+            </div>
+        </div>
+    </section>
 
-        <!-- Section 1: The Benchmarks -->
-        <section class="py-16 px-6 max-w-6xl mx-auto" aria-labelledby="data-viz-title">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 id="data-viz-title" class="text-3xl font-bold text-slate-900 mb-4">Targeting the Adoption Gap</h2>
-                    <p class="text-slate-600 mb-6 leading-relaxed">
-                        While <strong>Professional Services</strong> lead Canada with a 31.7% adoption rate, the national average lags at just 12.2%. This identifies a massive "Technical Implementation Gap."
+    <hr class="border-slate-200 max-w-6xl mx-auto">
+
+    <!-- Section 1: The Benchmarks (Data Viz) -->
+    <section class="py-16 px-6 max-w-6xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Targeting the Adoption Gap</h2>
+                <p class="text-slate-600 mb-6 leading-relaxed">
+                    While the <strong>Professional Services (Law, Accounting, Engineering)</strong> sector leads Canada with a 31.7% adoption rate, the national average lags at just 12.2%. This disparity highlights a massive "Implementation Gap."
+                </p>
+                <p class="text-slate-600 mb-6 leading-relaxed">
+                    Workspace Automation targets the <strong>70% of businesses</strong> who lack internal IT leadership to bridge this gap, despite 95% of them already paying for Microsoft or Google AI ecosystems.
+                </p>
+                <div class="bg-blue-50 p-6 rounded-lg border border-blue-100">
+                    <h3 class="font-bold text-blue-900 mb-2"><i class="fa-solid fa-check-circle mr-2"></i>Strategic Relevance</h3>
+                    <p class="text-sm text-blue-800">
+                        By focusing on the highest-adoption sector, we minimize sales friction. By solving the #1 barrier (security), we maximize market capture within that sector.
                     </p>
-                    <div class="bg-blue-50 p-6 rounded-lg border border-blue-100">
-                        <h3 class="font-bold text-blue-900 mb-2"><i class="fa-solid fa-check-circle mr-2" aria-hidden="true"></i>Strategic Relevance</h3>
-                        <p class="text-sm text-blue-800">
-                            We solve the #1 barrier—Security—for the 70% of firms that lack internal IT leadership.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-                    <div class="chart-container">
-                        <canvas id="benchmarkChart" aria-label="Bar chart showing AI adoption disparity in Canada" role="img"></canvas>
-                    </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Section 2: Methodology Tabs -->
-        <section class="py-16 px-6 bg-slate-100" aria-labelledby="method-title">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-12">
-                    <h2 id="method-title" class="text-3xl font-bold text-slate-900 mb-4">Three-Tier Validation Process</h2>
-                    <p class="text-slate-600 max-w-2xl mx-auto">Our methodology turns high-level statistics into custom technical reality.</p>
+            
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                <div class="chart-container">
+                    <canvas id="benchmarkChart"></canvas>
                 </div>
+                <p class="text-center text-xs text-slate-400 mt-4">AI Adoption: Professional Services vs. National Average (StatsCan Q2 2025)</p>
+            </div>
+        </div>
+    </section>
 
-                <div class="grid md:grid-cols-3 gap-6" role="tablist">
-                    <div id="btn-global" role="tab" aria-selected="true" aria-controls="detailView" tabindex="0" class="bg-white p-8 rounded-xl interactive-card active" onclick="showDetail('global')" onkeydown="if(event.key==='Enter'||event.key===' ')showDetail('global')">
-                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-700 mb-6" aria-hidden="true">
-                            <i class="fa-solid fa-chart-area text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3">1. The MFP Filter</h3>
-                        <p class="text-slate-500 text-sm">Anchoring ROI in StatsCan's Multifactor Productivity Program.</p>
+    <!-- Section 2: Methodology -->
+    <section class="py-16 px-6 bg-slate-100">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Three-Tier Validation Process</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto">Our audit methodology turns high-level statistics into custom technical reality.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6" id="methodologyGrid">
+                <div class="bg-white p-8 rounded-xl border border-slate-200 interactive-card active" onclick="showDetail('global')">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 mb-6">
+                        <i class="fa-solid fa-chart-area text-2xl"></i>
                     </div>
-                    <div id="btn-technical" role="tab" aria-selected="false" aria-controls="detailView" tabindex="0" class="bg-white p-8 rounded-xl interactive-card" onclick="showDetail('technical')" onkeydown="if(event.key==='Enter'||event.key===' ')showDetail('technical')">
-                        <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center text-teal-600 mb-6" aria-hidden="true">
-                            <i class="fa-solid fa-network-wired text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3">2. Infrastructure Audit</h3>
-                        <p class="text-slate-500 text-sm">Identifying bottlenecks in network routing and data handoffs.</p>
-                    </div>
-                    <div id="btn-qualitative" role="tab" aria-selected="false" aria-controls="detailView" tabindex="0" class="bg-white p-8 rounded-xl interactive-card" onclick="showDetail('qualitative')" onkeydown="if(event.key==='Enter'||event.key===' ')showDetail('qualitative')">
-                        <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center text-indigo-600 mb-6" aria-hidden="true">
-                            <i class="fa-solid fa-shield-halved text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3">3. Security Validation</h3>
-                        <p class="text-slate-500 text-sm">Eliminating "Shadow AI" and ensuring total data sovereignty.</p>
-                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">1. The MFP Filter</h3>
+                    <p class="text-slate-500 text-sm">Utilizing StatsCan's <a href="https://www23.statcan.gc.ca/imdb/p2SV.pl?Function=getSurvey&SDDS=1402" target="_blank" class="text-blue-600 hover:underline">Multifactor Productivity Program</a> to measure innovation.</p>
                 </div>
-
-                <div id="detailView" class="mt-8 bg-white p-8 rounded-2xl border border-slate-200 shadow-sm min-h-[180px] flex items-center" aria-live="polite">
-                    <div id="detailContent" class="w-full"></div>
+                <div class="bg-white p-8 rounded-xl border border-slate-200 interactive-card" onclick="showDetail('technical')">
+                    <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center text-teal-600 mb-6">
+                        <i class="fa-solid fa-network-wired text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">2. Infrastructure Audit</h3>
+                    <p class="text-slate-500 text-sm">Identifying network bottlenecks and manual data handoff risks.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl border border-slate-200 interactive-card" onclick="showDetail('qualitative')">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center text-indigo-600 mb-6">
+                        <i class="fa-solid fa-shield-halved text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">3. Security Validation</h3>
+                    <p class="text-slate-500 text-sm">Eliminating "Shadow AI" and ensuring total data sovereignty.</p>
                 </div>
             </div>
-        </section>
 
-        <!-- Section 3: ROI Calculator -->
-        <section id="calculator" class="py-20 px-6 max-w-5xl mx-auto scroll-mt-20">
-            <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
-                <div class="bg-slate-900 p-8 text-center text-white">
-                    <h2 class="text-3xl font-bold mb-2">Friction ROI Calculator</h2>
-                    <p class="text-blue-200 text-sm">Quantifying annual loss due to manual administrative friction.</p>
+            <div class="mt-8 bg-white p-8 rounded-2xl border border-slate-200 shadow-sm min-h-[200px] flex items-center" id="detailContainer">
+                <div id="detailContent" class="w-full"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: ROI Calculator -->
+    <section id="calculator" class="py-20 px-6 max-w-5xl mx-auto scroll-mt-20">
+        <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
+            <div class="bg-slate-900 p-8 text-center text-white">
+                <h2 class="text-3xl font-bold mb-2">The ROI Calculator</h2>
+                <p class="text-blue-200 text-sm">Validated against 2025 Productivity and Labor Cost Benchmarks.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2">
+                <div class="p-10 border-r border-slate-100">
+                    <h3 class="font-bold text-slate-900 mb-8 uppercase tracking-wider text-sm">Inputs</h3>
+                    <div class="mb-8">
+                        <label class="flex justify-between text-sm font-semibold text-slate-600 mb-4">
+                            <span>Team Size</span>
+                            <span id="teamSizeVal" class="text-blue-600 font-bold">15</span>
+                        </label>
+                        <input type="range" id="teamSize" min="1" max="100" value="15" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer">
+                    </div>
+                    <div class="mb-8">
+                        <label class="flex justify-between text-sm font-semibold text-slate-600 mb-4">
+                            <span>Friction Hours / Week</span>
+                            <span id="hoursVal" class="text-blue-600 font-bold">5</span>
+                        </label>
+                        <input type="range" id="hoursWasted" min="1" max="20" value="5" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer">
+                    </div>
+                    <div>
+                        <label class="flex justify-between text-sm font-semibold text-slate-600 mb-4">
+                            <span>Avg. Hourly Wage</span>
+                            <span id="wageVal" class="text-blue-600 font-bold">$45</span>
+                        </label>
+                        <input type="range" id="wageInput" min="20" max="150" value="45" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer">
+                    </div>
                 </div>
-                
-                <div class="grid md:grid-cols-2">
-                    <div class="p-10 border-r border-slate-100">
-                        <div class="mb-8">
-                            <label for="teamSize" class="flex justify-between text-sm font-semibold text-slate-600 mb-4">
-                                <span>Team Size</span>
-                                <span id="teamSizeVal" class="text-blue-600 font-bold">15</span>
-                            </label>
-                            <input type="range" id="teamSize" min="1" max="100" value="15" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer">
-                        </div>
-                        <div class="mb-8">
-                            <label for="hoursWasted" class="flex justify-between text-sm font-semibold text-slate-600 mb-4">
-                                <span>Wasted Hours / Week</span>
-                                <span id="hoursVal" class="text-blue-600 font-bold">5</span>
-                            </label>
-                            <input type="range" id="hoursWasted" min="1" max="20" value="5" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer">
-                        </div>
-                        <div>
-                            <label for="wageInput" class="flex justify-between text-sm font-semibold text-slate-600 mb-4">
-                                <span>Avg. Hourly Wage</span>
-                                <span id="wageVal" class="text-blue-600 font-bold">$45</span>
-                            </label>
-                            <input type="range" id="wageInput" min="20" max="150" value="45" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer">
-                        </div>
-                    </div>
 
-                    <div class="p-10 bg-slate-50 flex flex-col justify-center text-center">
-                        <p class="text-xs text-slate-500 font-bold uppercase mb-1">Annual Cost of Friction</p>
-                        <!-- Note: Content is fully replaced by JS, initial placeholder removed to ensure clean start -->
-                        <div class="text-5xl font-bold text-slate-800 mb-8" id="annualLoss"></div>
-                        <div class="p-6 bg-white rounded-xl border border-blue-100 shadow-sm">
-                            <p class="text-xs text-blue-600 font-bold uppercase mb-2">Automation Recovery Target (35%)</p>
-                            <div class="text-3xl font-bold text-blue-600" id="savingsVal"></div>
-                        </div>
-                        <a href="mailto:info@workspace-automation.com" class="mt-8 w-full bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition block shadow-lg">Request Technical Audit</a>
+                <div class="p-10 bg-slate-50 flex flex-col justify-center">
+                    <p class="text-xs text-slate-500 font-bold uppercase mb-1">Estimated Annual Friction Cost</p>
+                    <div class="text-5xl font-bold text-slate-800 mb-8" id="annualLoss">$0</div>
+                    <div class="p-6 bg-white rounded-xl border border-blue-100 shadow-sm">
+                        <p class="text-xs text-blue-600 font-bold uppercase mb-2 text-center">Automation Recovery Target (35%)</p>
+                        <div class="text-3xl font-bold text-blue-600 text-center" id="savingsVal">$0</div>
                     </div>
+                    <button class="mt-8 w-full bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition">Request Technical Audit</button>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Section 4: Future Scale -->
-        <section class="py-24 px-6 vision-gradient text-white overflow-hidden relative" aria-labelledby="vision-title">
-            <div class="max-w-6xl mx-auto">
-                <div class="flex flex-col md:flex-row gap-12 items-center">
-                    <div class="md:w-1/2">
-                        <h2 id="vision-title" class="text-3xl font-bold mb-6 text-blue-400">Future Scale: <br>Automation of Audits</h2>
-                        <p class="text-slate-300 mb-6 leading-relaxed">Workspace Automation is transitioning to a <strong>Proprietary SaaS Diagnostic Platform</strong>.</p>
-                        <ul class="space-y-4 text-sm text-slate-300" role="list">
-                            <li class="flex items-start gap-3"><i class="fa-solid fa-check-circle text-blue-500 mt-1"></i><span>Phase 2: Cloud-based "Infrastructure Health" API scanner (2027).</span></li>
-                            <li class="flex items-start gap-3"><i class="fa-solid fa-check-circle text-blue-500 mt-1"></i><span>Phase 3: Subscription monitoring for data sovereignty.</span></li>
-                        </ul>
-                    </div>
-                    <div class="md:w-1/2">
-                        <div class="bg-white/10 p-10 rounded-2xl border border-blue-500/30 backdrop-blur-sm text-center">
-                            <h4 class="text-blue-300 font-bold mb-2">Scalable Asset</h4>
-                            <p class="text-sm text-slate-300">Moving from one-on-one labor to an automated digital diagnostic tool.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-white py-12 border-t border-slate-200 text-center">
-        <p class="text-slate-400 text-[10px] font-bold uppercase tracking-widest">© 2026 Workspace Automation | info@workspace-automation.com</p>
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-12 text-center mt-12">
+        <p class="text-slate-400 text-xs uppercase font-bold">Workspace Automation Consulting</p>
+        <div class="flex flex-wrap justify-center gap-4 mt-4 text-slate-400 text-[10px] uppercase font-bold tracking-tight">
+            <a href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3310100401&pickMembers%5B0%5D=3.1" target="_blank" class="hover:text-blue-600">StatsCan AI Adoption (2025)</a>
+            <span>•</span>
+            <a href="https://www23.statcan.gc.ca/imdb/p2SV.pl?Function=getSurvey&SDDS=1402" target="_blank" class="hover:text-blue-600">StatsCan MFP (Record 1402)</a>
+            <span>•</span>
+            <a href="https://kpmg.com/ca/en/home/media/press-releases/2025/11/canadian-businesses-adopting-ai-but-few-are-seeing-roi.html" target="_blank" class="hover:text-blue-600">KPMG ROI Analysis</a>
+            <span>•</span>
+            <a href="https://www.cfib-fcei.ca/hubfs/research/reports/2025/Your%20Voice%20Survey%20January%202025.pdf" target="_blank" class="hover:text-blue-600">CFIB Jan 2025 Survey</a>
+        </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Chart Logic
             const ctx = document.getElementById('benchmarkChart').getContext('2d');
             new Chart(ctx, {
                 type: 'bar',
@@ -231,7 +218,7 @@
                     labels: ['National Avg (12.2%)', 'Professional Services (31.7%)'],
                     datasets: [{
                         data: [12.2, 31.7],
-                        backgroundColor: ['#cbd5e1', '#1d4ed8'],
+                        backgroundColor: ['#cbd5e1', '#3b82f6'],
                         borderRadius: 6
                     }]
                 },
@@ -242,33 +229,18 @@
                 }
             });
 
-            // Methodology Content Logic
             const details = {
-                global: { title: "1. The MFP Filter", content: "We anchor ROI claims in the 'Multifactor Productivity' program (Record 1402). We measure how technological change reverses downward productivity trends.", color: "text-blue-700" },
-                technical: { title: "2. The Infrastructure Audit", content: "We audit network routing to identify where manual data entry creates bottlenecks, applying Zero-Trust architecture to secure paths.", color: "text-teal-600" },
-                qualitative: { title: "3. Security Validation", content: "We remove the #1 barrier to AI: Security. By architecting 'Inside-the-Firewall' solutions, we ensure proprietary data stays private.", color: "text-indigo-600" }
+                global: { title: "1. The MFP Filter", content: "We anchor our ROI claims in the 'Multifactor Productivity' program (Record 1402). We measure how technological change and organizational innovation can reverse the current downward productivity trend.", color: "text-blue-600" },
+                technical: { title: "2. The Infrastructure Audit", content: "We audit your network to identify where manual data entry creates bottlenecks. We then apply industry-standard architecture to secure and automate those paths.", color: "text-teal-600" },
+                qualitative: { title: "3. Security Validation", content: "We remove the #1 barrier to AI expansion: Security. By architecting 'Inside-the-Firewall' solutions, we ensure proprietary data stays private and secure.", color: "text-indigo-600" }
             };
 
             window.showDetail = function(key) {
                 const data = details[key];
-                const contentDiv = document.getElementById('detailContent');
-                const cards = document.querySelectorAll('.interactive-card');
-                
-                contentDiv.innerHTML = `<h3 class="text-2xl font-bold ${data.color} mb-2">${data.title}</h3><p class="text-slate-600 text-lg leading-relaxed">${data.content}</p>`;
-                
-                cards.forEach(card => {
-                    card.classList.remove('active');
-                    card.setAttribute('aria-selected', 'false');
-                });
-                const activeCard = document.getElementById('btn-' + key);
-                if (activeCard) {
-                    activeCard.classList.add('active');
-                    activeCard.setAttribute('aria-selected', 'true');
-                }
+                document.getElementById('detailContent').innerHTML = `<h3 class="text-2xl font-bold ${data.color} mb-2">${data.title}</h3><p class="text-slate-600 text-lg leading-relaxed">${data.content}</p>`;
             };
             showDetail('global');
 
-            // Calculator Logic
             const teamIn = document.getElementById('teamSize');
             const hoursIn = document.getElementById('hoursWasted');
             const wageIn = document.getElementById('wageInput');
@@ -277,17 +249,10 @@
                 const loss = teamIn.value * hoursIn.value * 52 * wageIn.value;
                 document.getElementById('teamSizeVal').innerText = teamIn.value;
                 document.getElementById('hoursVal').innerText = hoursIn.value;
-                document.getElementById('wageVal').innerText = '$' + wageIn.value;
-                
-                // REWRITTEN FIX: Explicitly prepending '$' and using toLocaleString for number formatting only.
-                // This prevents the 'double dollar sign' error by avoiding toLocaleString's internal currency formatting.
-                const formattedLoss = loss.toLocaleString('en-US', { maximumFractionDigits: 0 });
-                const formattedSavings = Math.round(loss * 0.35).toLocaleString('en-US', { maximumFractionDigits: 0 });
-
-                document.getElementById('annualLoss').innerText = '$' + formattedLoss;
-                document.getElementById('savingsVal').innerText = '$' + formattedSavings;
+                document.getElementById('wageVal').innerText = `$${wageIn.value}`;
+                document.getElementById('annualLoss').innerText = `$${loss.toLocaleString()}`;
+                document.getElementById('savingsVal').innerText = `$${Math.round(loss * 0.35).toLocaleString()}`;
             }
-
             [teamIn, hoursIn, wageIn].forEach(i => i.addEventListener('input', update));
             update();
         });
