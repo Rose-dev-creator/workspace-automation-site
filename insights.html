@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Insights | Workspace Automation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap');
+        body { font-family: 'Open Sans', sans-serif; background-color: #f8fafc; color: #0f172a; scroll-behavior: smooth; }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+        .skip-link { position: absolute; top: -100px; left: 0; background: #1d4ed8; color: white; padding: 12px; z-index: 100; transition: top 0.3s; font-weight: bold; }
+        .skip-link:focus { top: 0; }
+        nav a:hover, nav a:focus { text-decoration: underline; text-underline-offset: 8px; text-decoration-thickness: 2px; }
+        .prose strong { color: #0f172a; font-weight: 700; }
+        .impact-box { border-left: 4px solid #1d4ed8; background-color: #f1f5f9; padding: 1.5rem; border-radius: 0 1rem 1rem 0; margin: 1.5rem 0; }
+        .source-tag { font-size: 0.7rem; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-top: 4px; }
+        .source-link:hover { color: #1d4ed8; text-decoration: underline; }
+    </style>
+</head>
+<body class="antialiased">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2" aria-label="Workspace Automation - Home">
+                <div class="w-10 h-10 bg-blue-700 rounded flex items-center justify-center text-white font-bold text-xl shadow-lg">W</div>
+                <span class="font-bold text-slate-900 tracking-tight text-xl uppercase">WORKSPACE <span class="text-blue-700">AUTOMATION</span></span>
+            </a>
+            <div class="hidden md:flex items-center gap-8 text-sm font-bold text-slate-800 uppercase tracking-tight">
+                <a href="index.html#services" class="hover:text-blue-700 transition">Services</a>
+                <a href="report.html" class="hover:text-blue-700 transition">Methodology</a>
+                <a href="insights.html" class="text-blue-700 underline decoration-2 underline-offset-8 transition" aria-current="page">Insights</a>
+                <a href="mailto:info@workspace-automation.com" class="bg-blue-700 text-white px-6 py-2 rounded-lg hover:bg-blue-800 transition shadow-md">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content" class="py-16 px-6 max-w-4xl mx-auto">
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Technical Insights</h1>
+            <p class="text-xl text-slate-800 leading-relaxed">Passing on recent initiatives in Canadian AI policy, international alliances, and technical guardrails.</p>
+        </div>
+
+        <!-- Article 1: Sovereign AI -->
+        <article class="bg-white p-10 rounded-3xl border border-slate-200 shadow-sm mb-16">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-blue-700 font-bold text-xs uppercase tracking-widest">Feb 14, 2026</span>
+                <span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 text-[10px] font-bold rounded uppercase">Data Sovereignty</span>
+            </div>
+            <h2 class="text-3xl font-bold text-slate-900 mb-6">Ending "Big Tech" Dependency: The Shift to Sovereign AI</h2>
+            <div class="prose prose-slate max-w-none text-slate-900 text-lg leading-relaxed">
+                <p class="mb-6">For years, Canadian SMBs have sent their sensitive client data to foreign-owned cloud clusters just to use basic AI tools. This month's launch of the <strong>Sovereign Technology Alliance</strong> signals a major shift: a move toward keeping AI processing within secure, domestic jurisdictions.</p>
+                
+                <h3 class="text-xl font-bold mt-8 mb-4">What this means for your firm:</h3>
+                <div class="impact-box">
+                    <ul class="list-disc pl-5 space-y-4 m-0">
+                        <li>
+                            <strong>Reduced Legal Risk:</strong> You can now architect systems where your data never leaves trusted borders, simplifying PIPEDA and provincial privacy compliance.
+                            <span class="source-tag">Source: <a href="https://www.canada.ca/en/innovation-science-economic-development/news/2026/02/canada-and-germany-sign-ai-joint-declaration-and-launch-sovereign-technology-alliance.html" target="_blank" class="source-link">Canada-Germany Joint Declaration of Intent (Feb 2026)</a></span>
+                        </li>
+                        <li>
+                            <strong>Access to "Safe-by-Design" Tools:</strong> New research-backed frameworks are becoming available specifically for SMBs who need enterprise-grade security without a massive R&D budget.
+                            <span class="source-tag">Source: <a href="https://lawzero.org/en/publication/scientist-ai-safe-design-not-desiring" target="_blank" class="source-link">LawZero (Incubated at Mila - Quebec AI Institute)</a></span>
+                        </li>
+                        <li>
+                            <strong>Solves the Talent Shortage:</strong> New bilateral funding is targeting the "critical skills gap," making it easier for you to find certified technicians to manage your AI foundations.
+                            <span class="source-tag">Source: <a href="https://ised-isde.canada.ca/site/ised/en/ai-sovereign-compute-infrastructure-program" target="_blank" class="source-link">Sovereign Technology Alliance / ISED Talent Development Mandate</a></span>
+                        </li>
+                    </ul>
+                </div>
+
+                <p class="mb-6">We are committed to this "Sovereign" framework to build <strong>Inside-the-Firewall</strong> agents. This ensures your intellectual property stays in your office, not in a global training set.</p>
+                
+                <a href="mailto:info@workspace-automation.com" class="text-blue-700 font-bold hover:underline decoration-2 underline-offset-4">Inquire about a Data Sovereignty Audit &rarr;</a>
+            </div>
+        </article>
+
+        <!-- Article 2: AIDA Brief -->
+        <article class="bg-white p-10 rounded-3xl border border-slate-200 shadow-sm mb-16">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-blue-700 font-bold text-xs uppercase tracking-widest">Feb 02, 2026</span>
+                <span class="px-2 py-0.5 bg-blue-100 text-blue-800 text-[10px] font-bold rounded uppercase">Regulatory Update</span>
+            </div>
+            <h2 class="text-3xl font-bold text-slate-900 mb-6">AI Liability: Your Business is Now Responsible for "Deployment"</h2>
+            <div class="prose prose-slate max-w-none text-slate-900 text-lg leading-relaxed">
+                <p class="mb-6">The <strong><a href="https://ised-isde.canada.ca/site/innovation-better-canada/en/artificial-intelligence-and-data-act" target="_blank" class="text-blue-700 hover:underline">Artificial Intelligence and Data Act (AIDA)</a></strong> has moved from a proposal to a roadmap for mandatory compliance. The most important takeaway for business owners? <strong>You are legally responsible for the AI systems you deploy.</strong></p>
+
+                <h3 class="text-xl font-bold mt-8 mb-4">The "Three-Stage" Compliance Risk:</h3>
+                <p class="mb-6">The new AI and Data Commissioner will monitor how firms handle these three phases defined in the Act:</p>
+                
+                <div class="grid md:grid-cols-3 gap-6 my-8">
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                        <h4 class="font-bold text-slate-900 mb-2 underline decoration-blue-500">1. Design</h4>
+                        <p class="text-sm">Identifying risks of harm and bias before implementation.</p>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                        <h4 class="font-bold text-slate-900 mb-2 underline decoration-blue-500">2. Development</h4>
+                        <p class="text-sm">Ensuring AI limitations are understood by users.</p>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                        <h4 class="font-bold text-slate-900 mb-2 underline decoration-blue-500">3. Deployment</h4>
+                        <p class="text-sm">Monitoring and risk mitigation. This is the owner's primary legal exposure.</p>
+                    </div>
+                </div>
+
+                <h3 class="text-xl font-bold mt-8 mb-4">Strategic ROI Opportunity</h3>
+                <p class="mb-2">By following these federal standards, you address the <strong>#1 barrier to adoption—Security.</strong> This allows your staff to work with confidence, finally closing the 74% ROI Gap that keeps most Canadian firms stuck in the "experimental" phase.</p>
+                <span class="source-tag mb-6">
+                    Sources: <a href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3310100401&pickMembers%5B0%5D=3.1" target="_blank" class="source-link">Statistics Canada (2025) - "Barriers to AI Scaling"</a> / 
+                    <a href="https://kpmg.com/ca/en/home/media/press-releases/2025/11/canadian-businesses-adopting-ai-but-few-are-seeing-roi.html" target="_blank" class="source-link">KPMG Canada (Nov 2025) - "The ROI Gap"</a>
+                </span>
+                
+                <a href="report.html" class="text-blue-700 font-bold hover:underline decoration-2 underline-offset-4">See how our methodology handles compliance &rarr;</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="bg-white py-12 border-t border-slate-200 text-center">
+        <p class="text-slate-900 text-sm font-bold uppercase tracking-widest">© 2026 Workspace Automation | info@workspace-automation.com</p>
+    </footer>
+</body>
+</html>
