@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workspace OS Dashboard | Prototype</title>
+    <!-- Dependencies -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap');
+        body { font-family: 'Open Sans', sans-serif; }
+        .font-display { font-family: 'Montserrat', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        const MOCK_SCAN_RESULTS = {
+            security: { 
+                score: 58, 
+                detail: "4 Unsecured AI tunnels detected. Default router credentials found. Firmware 14 months out of date." 
+            },
+            aoda: { 
+                score: 42, 
+                detail: "Website interface missing semantic ARIA labels. 1,242 site elements fail screen-reader contrast." 
+            },
+            efficiency: { 
+                score: 78, 
+                detail: "Manual document reformatting friction: 20 hrs/wk lost. Verified by Workflow Integrity Audit." 
+            }
+        };
+
+        const App = () => {
+            const [view, setView] = useState('landing');
+            const [scanProgress, setScanProgress] = useState(0);
+
+            const startScan = () => {
+                setView('scanning');
+                setScanProgress(0);
+            };
+
+            useEffect(() => {
+                if (view === 'scanning') {
+                    const interval = setInterval(() => {
+                        setScanProgress(prev => {
+                            if (prev >= 100) {
+                                clearInterval(interval);
+                                setTimeout(() => setView('dashboard'), 800);
+                                return 100;
+                            }
+                            return prev + 2;
+                        });
+                    }, 40);
+                    return () => clearInterval(interval);
+                }
+            }, [view]);
+
+            // Refresh icons after every render
+            useEffect(() => {
+                if (window.lucide) {
+                    window.lucide.createIcons();
+                }
+            });
+
+            const LandingView = () => (
+                <div className="flex flex-col items-center justify-center min-h-screen text-center px-6">
+                    <div className="w-16 h-16 bg-blue-700 rounded-2xl flex items-center justify-center text-white font-bold text-3xl shadow-2xl mb-8">W</div>
+                    <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 font-display uppercase tracking-tight">Workspace <span className="text-blue-700 font-black">Sovereign OS</span></h1>
+                    <p className="text-xl text-slate-600 max-w-2xl mb-12 leading-relaxed">
+                        A diagnostically led AI platform for SMBs. Secure your infrastructure, audit your accessibility, and recover your lost hours.
+                    </p>
+                    <div className="bg-white p-8 rounded-3xl shadow-xl border border-slate-200 flex flex-col items-center gap-6 w-full max-w-md">
+                        <div className="text-left w-full text-center">
+                            <label className="text-xs font-black text-slate-400 uppercase tracking-widest block mb-4 underline decoration-blue-500 underline-offset-4 decoration-2">Connect Your Workspace</label>
+                            <div className="mt-2 flex gap-3">
+                                <button className="flex-1 py-3 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center gap-2 font-bold text-slate-700 hover:bg-slate-100 transition shadow-sm">
+                                    <img src="https://www.microsoft.com/favicon.ico" className="w-4 h-4" alt="MS" /> Microsoft 365
+                                </button>
+                                <button className="flex-1 py-3 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center gap-2 font-bold text-slate-700 hover:bg-slate-100 transition shadow-sm">
+                                    <img src="https://www.google.com/favicon.ico" className="w-4 h-4" alt="GG" /> Workspace
+                                </button>
+                            </div>
+                        </div>
+                        <button 
+                            onClick={startScan}
+                            className="w-full py-4 bg-blue-700 text-white rounded-xl font-bold text-lg hover:bg-blue-800 transition shadow-lg flex items-center justify-center gap-2 group"
+                        >
+                            Run Infrastructure Audit <i data-lucide="zap" className="w-5 h-5 group-hover:animate-pulse"></i>
+                        </button>
+                    </div>
+                </div>
+            );
+
+            const ScanningView = () => (
+                <div className="flex flex-col items-center justify-center min-h-screen px-6 text-center">
+                    <div className="w-full max-w-lg">
+                        <div className="flex justify-between items-end mb-4">
+                            <div className="text-left">
+                                <h2 className="text-2xl font-bold text-slate-900 uppercase tracking-tight">Scanning Sovereign Tenant</h2>
+                                <p className="text-slate-500 font-medium">Analyzing permissions, router firmware, and AODA...</p>
+                            </div>
+                            <span className="text-2xl font-black text-blue-700">{scanProgress}%</span>
+                        </div>
+                        <div className="w-full bg-slate-200 h-4 rounded-full overflow-hidden shadow-inner">
+                            <div className="bg-blue-600 h-full transition-all duration-300" style={{ width: `${scanProgress}%` }} />
+                        </div>
+                        <div className="mt-8 space-y-4 text-left">
+                            {[
+                                { label: "M365 OAuth Verification", min: 10 },
+                                { label: "Network Edge & Router Security Audit", min: 25 },
+                                { label: "VLAN Segmentation Check", min: 40 },
+                                { label: "Website DOM Interface Crawl", min: 60 },
+                                { label: "PII Leak Detection", min: 80 },
+                                { label: "Administrative Workflow Validation", min: 95 }
+                            ].map((step, i) => (
+                                <div key={i} className={`flex items-center gap-3 transition-opacity duration-500 ${scanProgress > step.min ? 'opacity-100' : 'opacity-20'}`}>
+                                    {scanProgress > step.min ? <i data-lucide="check-circle" className="text-emerald-500 w-5 h-5"></i> : <div className="w-5 h-5 rounded-full border-2 border-slate-300" />}
+                                    <span className="text-sm font-bold text-slate-700 tracking-tight">{step.label}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            );
+
+            const DashboardView = () => (
+                <div className="flex min-h-screen">
+                    <aside className="w-64 bg-slate-900 text-slate-400 p-6 flex flex-col gap-8 hidden lg:flex border-r border-slate-800">
+                        <div className="flex items-center gap-3 text-white">
+                            <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center font-bold shadow-lg">W</div>
+                            <span className="font-bold tracking-tight text-sm uppercase">Sovereign OS</span>
+                        </div>
+                        <nav className="flex flex-col gap-2">
+                            <button className="flex items-center gap-3 px-4 py-3 rounded-xl transition bg-blue-600 text-white shadow-lg"><i data-lucide="layout-dashboard" className="w-5 h-5"></i> <span className="text-xs font-bold uppercase tracking-widest">Overview</span></button>
+                            <button className="flex items-center gap-3 px-4 py-3 rounded-xl transition hover:bg-slate-800"><i data-lucide="bot" className="w-5 h-5"></i> <span className="text-xs font-bold uppercase tracking-widest">Agents</span></button>
+                            <button className="flex items-center gap-3 px-4 py-3 rounded-xl transition hover:bg-slate-800"><i data-lucide="activity" className="w-5 h-5"></i> <span className="text-xs font-bold uppercase tracking-widest">Flow Monitor</span></button>
+                        </nav>
+                        <div className="mt-auto p-4 bg-blue-600/10 rounded-2xl border border-blue-500/20 text-xs">
+                            <div className="flex items-center gap-2 text-blue-400 font-black uppercase mb-2">
+                                <i data-lucide="shield" className="w-4 h-4"></i> Compliance Note
+                            </div>
+                            <p className="leading-relaxed text-slate-300 italic">"Infrastructure hardened. Data sovereignty maintained. Edge protected."</p>
+                        </div>
+                    </aside>
+                    <main className="flex-1 p-8 overflow-y-auto">
+                        <header className="flex justify-between items-center mb-10">
+                            <div>
+                                <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tight">Executive Dashboard</h2>
+                                <p className="text-slate-500 font-medium tracking-tight">Real-time Sovereign Intelligence | Sterling & Associates</p>
+                            </div>
+                            <button onClick={() => setView('landing')} className="text-xs font-bold text-slate-400 hover:text-blue-600 flex items-center gap-1 transition-colors">
+                                Reset Simulation <i data-lucide="refresh-cw" className="w-3 h-3"></i>
+                            </button>
+                        </header>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                            {[
+                                { title: "Security Health", val: "58/100", status: "Critical", icon: "shield", color: "text-rose-600", bg: "bg-rose-50", detail: MOCK_SCAN_RESULTS.security.detail },
+                                { title: "AODA Pass Rate", val: "42/100", status: "Legal Risk", icon: "accessibility", color: "text-orange-600", bg: "bg-orange-50", detail: MOCK_SCAN_RESULTS.aoda.detail },
+                                { title: "Hours Recovered", val: "142.5", status: "Target", icon: "clock", color: "text-emerald-600", bg: "bg-emerald-50", detail: MOCK_SCAN_RESULTS.efficiency.detail }
+                            ].map((s, i) => (
+                                <div key={i} className="p-6 rounded-3xl border border-slate-200 bg-white shadow-sm">
+                                    <div className="flex justify-between items-start mb-4">
+                                        <div className={`p-3 rounded-2xl ${s.bg} ${s.color}`}><i data-lucide={s.icon} className="w-6 h-6"></i></div>
+                                        <span className={`text-[10px] font-black uppercase px-2 py-1 rounded border border-current ${s.color}`}>{s.status}</span>
+                                    </div>
+                                    <p className="text-xs font-bold text-slate-400 uppercase mb-1 tracking-widest">{s.title}</p>
+                                    <h3 className="text-4xl font-black text-slate-900 mb-4">{s.val}</h3>
+                                    <p className="text-xs text-slate-600 font-medium leading-relaxed">{s.detail}</p>
+                                </div>
+                            ))}
+                        </div>
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+                                <div className="p-6 border-b border-slate-50 flex justify-between items-center bg-slate-50/50">
+                                    <h3 className="font-bold flex items-center gap-2 text-sm uppercase tracking-tight">
+                                        <i data-lucide="zap" className="text-blue-600 w-4 h-4"></i> Resolution Roadmap
+                                    </h3>
+                                    <span className="text-[10px] font-black text-slate-400">4 ACTIONS PENDING</span>
+                                </div>
+                                <div className="divide-y divide-slate-100">
+                                    {[
+                                        { title: "Edge Router Hardening", detail: "Update firmware and credentials.", path: "Self-Service", color: "rose", icon: "wifi" },
+                                        { title: "Deploy Sovereign Tunnel", detail: "Enforce PII masking for AI traffic.", path: "Expert Required", color: "blue", icon: "lock" },
+                                        { title: "AODA Website Meta-Tagging", detail: "Automated ARIA and semantic fixes.", path: "SaaS-Guided", color: "orange", icon: "globe" },
+                                        { title: "Admin 'Gem' Accelerator", detail: "Configure AI for automated reformatting.", path: "Staff-Led", color: "emerald", icon: "bot" }
+                                    ].map((item, i) => (
+                                        <div key={i} className="p-6 hover:bg-slate-50 transition cursor-pointer group flex items-center justify-between">
+                                            <div className="flex gap-4">
+                                                <div className={`w-12 h-12 bg-${item.color}-50 text-${item.color}-600 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-white transition-colors`}>
+                                                    <i data-lucide={item.icon} className="w-6 h-6"></i>
+                                                </div>
+                                                <div>
+                                                    <h4 className="font-bold text-slate-900 group-hover:text-blue-700 transition">{item.title}</h4>
+                                                    <p className="text-xs text-slate-500 mt-1">{item.detail}</p>
+                                                </div>
+                                            </div>
+                                            <div className="text-right">
+                                                <span className={`text-[10px] font-black ${item.path === 'Self-Service' ? 'text-rose-600' : 'text-slate-400'} uppercase block`}>{item.path}</span>
+                                                <i data-lucide="chevron-right" className="ml-auto mt-1 text-slate-300 group-hover:text-blue-700 transition w-5 h-5"></i>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                            <div className="bg-slate-900 rounded-3xl p-8 text-white relative overflow-hidden flex flex-col justify-center">
+                                <div className="relative z-10">
+                                    <h3 className="text-2xl font-black mb-4 flex items-center gap-3">
+                                        <i data-lucide="users" className="text-blue-400 w-6 h-6"></i> Human Moat Verified
+                                    </h3>
+                                    <p className="text-slate-300 text-sm mb-8 leading-relaxed font-medium">
+                                        Scanning is the first step. Our <strong>AODA Configuration Department</strong> provides technical validation for your web presence.
+                                    </p>
+                                    <div className="space-y-3">
+                                        <div className="flex items-center gap-3 bg-white/10 p-4 rounded-2xl border border-white/10 text-xs font-bold">
+                                            <i data-lucide="check-circle" className="text-emerald-400 w-4 h-4"></i> Web Accessibility Shield: ACTIVE
+                                        </div>
+                                        <div className="flex items-center gap-3 bg-white/10 p-4 rounded-2xl border border-white/10 text-xs font-bold">
+                                            <i data-lucide="check-circle" className="text-emerald-400 w-4 h-4"></i> Network Edge Security: AUDIT COMPLETE
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            );
+
+            return (
+                <div className="min-h-screen">
+                    {view === 'landing' && <LandingView />}
+                    {view === 'scanning' && <ScanningView />}
+                    {view === 'dashboard' && <DashboardView />}
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
